@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TheQuoteBook</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Input_quote">Input Quote</string>
+    <string name="Tap_to_begin">Tap here to begin!</string>
+    <string name="Add_Quote">Add Quote</string>
+    <string name="title_activity_display_add_quote">DisplayAddQuote</string>
+    <string name="edit_message">Edit Message</string>
+
+</resources>
