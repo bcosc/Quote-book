@@ -101,9 +101,6 @@ public class QuoteBook extends ActionBarActivity {
     }
     public void addQuote(MenuItem item){
         Intent intent = new Intent(this, DisplayAddQuote.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 }
