@@ -1,9 +1,15 @@
 package bcosc.thequotebook;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class DisplayAddQuote extends ActionBarActivity {
@@ -12,6 +18,20 @@ public class DisplayAddQuote extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_add_quote);
+
+        final EditText inputQuote = (EditText) findViewById(R.id.editQuote);
+
+        Button sendToQuoteBook = (Button) findViewById(R.id.SaveButton);
+        sendToQuoteBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent activityResult = new Intent(getApplicationContext(), QuoteBook.class);
+                activityResult.putExtra("newQuote", inputQuote.getText().toString());
+                Log.d("OnClick", "Added new quote");
+                setResult(RESULT_OK, activityResult);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -35,4 +55,12 @@ public class DisplayAddQuote extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public String saveQuote(View v) {
+        EditText userInputText = (EditText) findViewById(R.id.editQuote);
+        String newQuote = userInputText.getText().toString();
+        Log.d("DERP", newQuote);
+        return newQuote;
+    }
+
 }

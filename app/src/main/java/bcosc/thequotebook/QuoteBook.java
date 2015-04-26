@@ -2,6 +2,7 @@ package bcosc.thequotebook;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 public class QuoteBook extends ActionBarActivity {
 
     public final static String EXTRA_MESSAGE = "message";
+    private final int ADD_QUOTE_REQUEST = 0;
 
     int count = 0;
 
@@ -70,7 +73,6 @@ public class QuoteBook extends ActionBarActivity {
             }
         });
 
-
     }
 
 
@@ -101,6 +103,21 @@ public class QuoteBook extends ActionBarActivity {
     }
     public void addQuote(MenuItem item){
         Intent intent = new Intent(this, DisplayAddQuote.class);
-        startActivity(intent);
+        startActivityForResult(intent, ADD_QUOTE_REQUEST);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case ADD_QUOTE_REQUEST:
+                if (resultCode == RESULT_OK) {
+                    // do whateve
+                    String newQuote = data.getStringExtra("newQuote");
+                    Log.d("DERP DERPE", "QuoteBook received a new quote: " + newQuote);
+                } else {
+                    Log.e("QuoteBook", "Unable to get result from DisplayAddQuote");
+                }
+        }
+    }
+
 }
