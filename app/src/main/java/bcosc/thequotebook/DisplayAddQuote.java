@@ -20,6 +20,7 @@ public class DisplayAddQuote extends ActionBarActivity {
         setContentView(R.layout.activity_display_add_quote);
 
         final EditText inputQuote = (EditText) findViewById(R.id.editQuote);
+        final EditText inputName = (EditText) findViewById(R.id.editName);
 
         Button sendToQuoteBook = (Button) findViewById(R.id.SaveButton);
         sendToQuoteBook.setOnClickListener(new View.OnClickListener() {
@@ -27,7 +28,9 @@ public class DisplayAddQuote extends ActionBarActivity {
             public void onClick(View view) {
                 Intent activityResult = new Intent(getApplicationContext(), QuoteBook.class);
                 activityResult.putExtra("newQuote", inputQuote.getText().toString());
-                Log.d("OnClick", "Added new quote");
+                Log.d("QuoteBook-OnClick", "Added new quote");
+                activityResult.putExtra("newName", inputName.getText().toString());
+                Log.d("QuoteBook-OnClick", "Added new name");
                 setResult(RESULT_OK, activityResult);
                 finish();
             }

@@ -113,7 +113,9 @@ public class QuoteBook extends ActionBarActivity {
                 if (resultCode == RESULT_OK) {
                     // do whateve
                     String newQuote = data.getStringExtra("newQuote");
-                    Log.d("DERP DERPE", "QuoteBook received a new quote: " + newQuote);
+                    Log.d("QuoteBook received", "QuoteBook received a new quote: " + newQuote);
+                    String newName = data.getStringExtra("newName");
+                    Log.d("QuoteBook received", "QuoteBook received a new quote: " + newName);
                 } else {
                     Log.e("QuoteBook", "Unable to get result from DisplayAddQuote");
                 }
