@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="bcosc.thequotebook.QuoteBook" />
         </activity>
+        <activity
+            android:name=".DisplayDeleteQuote"
+            android:label="@string/title_activity_display_delete_quote"
+            android:parentActivityName=".QuoteBook" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="bcosc.thequotebook.QuoteBook" />
+        </activity>
     </application>
 
 </manifest>

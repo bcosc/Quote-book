@@ -2,4 +2,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".QuoteBook">
     <item android:id="@+id/add_quote" android:title="@string/Add_Quote" android:onClick="addQuote" />
+    <item android:id="@+id/delete_quote" android:title="@string/Delete_Quote" android:onClick="deleteQuote" />
 </menu>
